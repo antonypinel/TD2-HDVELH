@@ -17,55 +17,99 @@ public class Event extends NodeMultiple {
 	public static final String ERROR_MSG_UNEXPECTED_END = "Sorry, for some unexpected reason the story ends here...";
 	public static final String PROMPT_ANSWER = "Answer: ";
 	public static final String WARNING_MSG_INTEGER_EXPECTED = "Please input a integer within range!";
+	private GUIManager gui;
+	private String playerAnswer;
+	private Scanner reader;
+	private int chosenPath;
+	private String id;
+
+	/** Constructors **/
+
+	public Event(GUIManager gui) {
+		this.gui = gui;
+	}
+
+	public Event(String data, String id) {
+		super(data);
+		this.id = id;
+	}
+
+	public Event() {
+		this.gui = null;
+	}
+
+	/** Methods **/
+
+	public String toString() {
+		return "Event" + "#" + getId() + "(" + getClass().getSimpleName() + ");" + getData();
+	}
+
+	public boolean isFinal() {
+		return this.hasDaughters();
+	}
+
+	public boolean isInRange(int index) {
+
+	}
+
+	public int interpretAnswer() {
+
+	}
+
+	public Event run() {
+		this.gui.outputln(this.toString());
+		this.gui.outputln(PROMPT_ANSWER);
+		playerAnswer = reader.next();
+		chosenPath = interpretAnswer();
+	}
 
 	/**
 	 * @return the playerAnswer
 	 */
 	public String getPlayerAnswer() {
-		/* TO BE COMPLETED */
+		return this.playerAnswer;
 	}
 
 	/**
 	 * @param playerAnswer the playerAnswer to set
 	 */
 	public void setPlayerAnswer(String playerAnswer) {
-		/* TO BE COMPLETED */
+		this.playerAnswer = playerAnswer;
 	}
 
 	/**
 	 * @return the reader
 	 */
 	public Scanner getReader() {
-		/* TO BE COMPLETED */
+		return this.reader;
 	}
 
 	/**
 	 * @param reader the reader to set
 	 */
 	public void setReader(Scanner reader) {
-		/* TO BE COMPLETED */
+		this.reader = reader;
 	}
 
 	/**
 	 * @return the chosenPath
 	 */
 	public int getChosenPath() {
-		/* TO BE COMPLETED */
+		return this.chosenPath;
 	}
 
 	/**
 	 * @param chosenPath the chosenPath to set
 	 */
 	public void setChosenPath(int chosenPath) {
-		/* TO BE COMPLETED */
+		this.chosenPath = chosenPath;
 	}
 
-	/* Methods */
 	/**
 	 * @see pracHDVELH.NodeMultiple#getData()
 	 */
 	public String getData() {
-		/* TO BE COMPLETED */
+		return this.getData().toString();
 	}
 
 	/**
@@ -73,7 +117,7 @@ public class Event extends NodeMultiple {
 	 * @param data
 	 */
 	public void setData(String data) {
-		/* TO BE COMPLETED */
+		this.setData(data);
 	}
 
 	/**
@@ -81,7 +125,7 @@ public class Event extends NodeMultiple {
 	 */
 	@Override
 	public Event getDaughter(int i) {
-		/* TO BE COMPLETED */
+		return this.getDaughter(i);
 	}
 
 	/**
@@ -90,33 +134,29 @@ public class Event extends NodeMultiple {
 	 * @param i
 	 */
 	public void setDaughter(Event daughter, int i) {
-		/* TO BE COMPLETED */
+		this.setDaughter(daughter, i);
 	}
 
 	/**
 	 * @return the gui
 	 */
 	public GUIManager getGui() {
-		/* TO BE COMPLETED */
+		return this.gui;
 	}
 
 	/**
 	 * @param gui the gui to set
 	 */
 	public void setGui(GUIManager gui) {
-		/* TO BE COMPLETED */
+		this.gui = gui;
 	}
 
 	/**
 	 * @return the id
 	 */
-	public int getId() {
-		/* TO BE COMPLETED */
+	public String getId() {
+		return this.getId();
 	}
-
-	/* Methods */
-	/* TO BE COMPLETED */
-	
 }
 
 // eof

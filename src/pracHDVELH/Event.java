@@ -7,8 +7,6 @@ package pracHDVELH;
 
 import java.util.Scanner;
 
-import myUtils.ErrorNaiveHandler;
-
 /**
  * @author prost
  *
@@ -52,11 +50,18 @@ public class Event extends NodeMultiple {
 	}
 
 	public boolean isInRange(int index) {
-
+		final int i = Integer.parseInt(String.valueOf(index)) + ERROR_STATUS_INDEX_OUT_OF_RANGE;
+		if (i <= NODE_MAX_ARITY && i >= 0) return true;
+		return false;
 	}
 
-	public int interpretAnswer() {
 
+	public int interpretAnswer() {
+		reader = new Scanner(System.in);
+		System.out.println(PROMPT_ANSWER);
+		playerAnswer = reader.next();
+		chosenPath = Integer.parseInt(playerAnswer) -1;
+		return 0;
 	}
 
 	public Event run() {

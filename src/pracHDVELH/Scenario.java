@@ -15,7 +15,25 @@ public class Scenario {
 	private Event head;
 	private GUIManager gui;
 
-	/* TO BE COMPLETED */
+	/** Constructors **/
+
+	public Scenario(Event head, GUIManager gui) {
+		this.head = head;
+		this.gui = gui;
+	}
+
+	/** Methods **/
+
+	public Event getHead() {
+		return this.head;
+	}
+	public void setHead(Event head) {
+		this.head = head;
+	}
+
+	public String run() {
+
+	}
 
 	/* MAIN */
 	public static void main(String[] args) {

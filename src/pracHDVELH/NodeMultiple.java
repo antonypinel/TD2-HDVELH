@@ -81,6 +81,7 @@ public class NodeMultiple {
 		for (int i = 0; i < this.daughters.length - 1; ++i) {
 			if (this.daughters[i] == null) {
 				this.daughters[i] = daughter;
+				return;
 			}
 		}
 	}
